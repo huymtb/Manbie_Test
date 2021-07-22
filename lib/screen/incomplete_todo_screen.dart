@@ -35,7 +35,7 @@ class InCompleteTodoScreen extends StatelessWidget {
     return ListView.builder(
         itemCount: todoStore!.listNotDone.length,
         itemBuilder: (context, index) {
-          final Todo todo = todoStore!.listTodo[index];
+          final Todo todo = todoStore!.listNotDone[index];
           return TodoItem(
             todo: todoStore!.listNotDone[index],
             checkDone: () {

@@ -70,8 +70,8 @@ abstract class _TodoStore with Store {
   @action
   Future<void> updateTodo(Todo todo) async {
     todo.status = !todo.status!;
-    final int status = await _todoRepository.checkDoneTodo(todo);
-    if (status == 1) {
+    await _todoRepository.checkDoneTodo(todo);
+    if (todo.status!) {
       listDone.add(todo);
       listNotDone.removeWhere((element) => element.id == todo.id);
     } else {
